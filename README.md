@@ -1,0 +1,1 @@
+# sptinboot*angular-architecture 
