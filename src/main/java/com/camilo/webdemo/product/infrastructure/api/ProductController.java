@@ -1,7 +1,10 @@
 package com.camilo.webdemo.product.infrastructure.api;
 
 import com.camilo.webdemo.common.mediator.Mediator;
-import com.camilo.webdemo.product.application.ProductCreateRequest;
+import com.camilo.webdemo.product.application.comandos.create.ProductCreateRequest;
+import com.camilo.webdemo.product.application.querry.getByid.GetProductByidResponse;
+import com.camilo.webdemo.product.application.querry.getByid.GetProductbyRequest;
+import com.camilo.webdemo.product.domain.Producto;
 import com.camilo.webdemo.product.infrastructure.api.dto.ProuctDto;
 import com.camilo.webdemo.product.infrastructure.api.mapper.ProuctMapper;
 import lombok.RequiredArgsConstructor;
@@ -27,16 +30,17 @@ public class ProductController implements ProductApi {
     @GetMapping("/{id}")
     public ResponseEntity<ProuctDto> getProductobyid(@PathVariable Long id) {
 
+        GetProductByidResponse response = mediator.dispatch(new GetProductbyRequest(id));
+        ProuctDto prouctDto = prouctMapper.mapToProduct(response.getProducto());
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(prouctDto);
     }
 
     @PostMapping("")
     public ResponseEntity<Void> saveProduct(@RequestBody ProuctDto productoDto) {
         ProductCreateRequest request = prouctMapper.mapToCreateProductRequest(productoDto);
         mediator.dispatch(request);
-        return ResponseEntity.created(URI.create("/api/v1/products/".concat(String.valueOf(productoDto.getId())))).build();
-
+        return ResponseEntity.created(URI.create("/api/v1/products/".concat(productoDto.getId().toString()))).build();
 
     }
 

@@ -1,4 +1,4 @@
-package com.camilo.webdemo.product.application;
+package com.camilo.webdemo.product.application.comandos.create;
 
 import com.camilo.webdemo.common.mediator.RequestHandler;
 import com.camilo.webdemo.product.domain.ProductRepository;
@@ -21,7 +21,7 @@ public class ProductCreateHandler implements RequestHandler<ProductCreateRequest
                 name(requst.getName())
                 .descripcion(requst.getDescripcion()).
                 image(requst.getImage())
-                .precio(requst.getPrecio()).id(Long.valueOf(UUID.randomUUID().toString())).build();
+                .precio(requst.getPrecio()).id(requst.getId()).build();
         productRepository.upsert(producto);
         return null;
     }

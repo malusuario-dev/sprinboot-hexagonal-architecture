@@ -1,11 +1,10 @@
-package com.camilo.webdemo.product.infrastructure.api.dto;
+package com.camilo.webdemo.product.infrastructure.database.entity;
+
 
 import lombok.Data;
 
-
 @Data
-public class ProuctDto {
-
+public class ProductEntity {
     private  Long id;
     private String name;
     private Double precio;
