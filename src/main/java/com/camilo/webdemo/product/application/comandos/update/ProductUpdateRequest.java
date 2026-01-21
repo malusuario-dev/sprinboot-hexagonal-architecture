@@ -1,4 +1,4 @@
-package com.camilo.webdemo.product.application.comandos.create;
+package com.camilo.webdemo.product.application.comandos.update;
 
 import com.camilo.webdemo.common.Request;
 import lombok.Data;
@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Data
 
-public class ProductCreateRequest implements Request<Void> {
+public class ProductUpdateRequest implements Request<Void> {
     private Long id;
     private String name;
     private Double precio;

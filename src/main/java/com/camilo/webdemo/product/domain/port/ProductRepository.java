@@ -1,4 +1,6 @@
-package com.camilo.webdemo.product.domain;
+package com.camilo.webdemo.product.domain.port;
+
+import com.camilo.webdemo.product.domain.entity.Producto;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,8 +1,9 @@
 package com.camilo.webdemo.product.application.querry.getByid;
 
-import com.camilo.webdemo.common.mediator.RequestHandler;
-import com.camilo.webdemo.product.domain.ProductRepository;
-import com.camilo.webdemo.product.domain.Producto;
+import com.camilo.webdemo.common.RequestHandler;
+import com.camilo.webdemo.product.domain.exception.ProductNotFoundExeption;
+import com.camilo.webdemo.product.domain.port.ProductRepository;
+import com.camilo.webdemo.product.domain.entity.Producto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +16,7 @@ public class getProductByidHandler implements RequestHandler<GetProductbyRequest
     @Override
     public GetProductByidResponse handle(GetProductbyRequest requst) {
       Producto producto=  productRepository.findbyid(requst.getId()).orElseThrow(()->
-                new IllegalArgumentException("prodcuto no encontrado"));
+                new ProductNotFoundExeption(requst.getId()));
         return new GetProductByidResponse(producto);
     }
 

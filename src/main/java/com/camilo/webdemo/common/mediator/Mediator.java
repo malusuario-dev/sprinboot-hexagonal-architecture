@@ -1,5 +1,7 @@
 package com.camilo.webdemo.common.mediator;
 
+import com.camilo.webdemo.common.Request;
+import com.camilo.webdemo.common.RequestHandler;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

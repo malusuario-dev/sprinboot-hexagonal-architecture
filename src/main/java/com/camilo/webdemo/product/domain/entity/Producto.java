@@ -1,4 +1,4 @@
-package com.camilo.webdemo.product.domain;
+package com.camilo.webdemo.product.domain.entity;
 
 import lombok.Builder;
 import lombok.Data;

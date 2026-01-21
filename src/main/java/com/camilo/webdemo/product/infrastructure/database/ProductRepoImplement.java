@@ -1,10 +1,9 @@
 package com.camilo.webdemo.product.infrastructure.database;
 
-import com.camilo.webdemo.product.domain.ProductRepository;
-import com.camilo.webdemo.product.domain.Producto;
+import com.camilo.webdemo.product.domain.port.ProductRepository;
+import com.camilo.webdemo.product.domain.entity.Producto;
 import com.camilo.webdemo.product.infrastructure.database.entity.ProductEntity;
 import com.camilo.webdemo.product.infrastructure.database.mapper.ProductEntityMapper;
-import com.camilo.webdemo.product.infrastructure.database.mapper.ProductEntityMapperImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -22,7 +21,7 @@ public class ProductRepoImplement implements ProductRepository {
     @Override
     public void upsert(Producto producto) {
         ProductEntity productEntity = productEntityMapper.mapToProductEntity(producto);
-
+        productos.removeIf(productEntity1 -> productEntity1.getId().equals(productEntity.getId()));
         productos.add(productEntity);
     }
 

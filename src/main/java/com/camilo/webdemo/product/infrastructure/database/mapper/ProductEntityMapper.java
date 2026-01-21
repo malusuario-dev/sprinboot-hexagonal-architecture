@@ -1,6 +1,6 @@
 package com.camilo.webdemo.product.infrastructure.database.mapper;
 
-import com.camilo.webdemo.product.domain.Producto;
+import com.camilo.webdemo.product.domain.entity.Producto;
 import com.camilo.webdemo.product.infrastructure.database.entity.ProductEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;

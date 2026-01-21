@@ -1,4 +1,4 @@
-package com.camilo.webdemo.product.application.comandos.create;
+package com.camilo.webdemo.product.application.comandos.update;
 
 import com.camilo.webdemo.common.RequestHandler;
 import com.camilo.webdemo.common.util.FileUtils;
@@ -7,18 +7,17 @@ import com.camilo.webdemo.product.domain.entity.Producto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+
 @Service
 @RequiredArgsConstructor
-public class ProductCreateHandler implements RequestHandler<ProductCreateRequest, Void> {
+public class ProductUpdateHandler implements RequestHandler<ProductUpdateRequest, Void> {
 
     private final ProductRepository productRepository;
-    private  final FileUtils fileUtils;
-
+ private  final FileUtils fileUtils;
 
     @Override
-    public Void handle(ProductCreateRequest requst) {
+    public Void handle(ProductUpdateRequest requst) {
         String uniqueFile = fileUtils.getUniqueFile(requst.getFile());
-
         Producto producto = Producto.builder().
                 name(requst.getName())
                 .descripcion(requst.getDescripcion()).
@@ -28,8 +27,10 @@ public class ProductCreateHandler implements RequestHandler<ProductCreateRequest
         return null;
     }
 
+
+
     @Override
-    public Class<ProductCreateRequest> getReuestType() {
-        return ProductCreateRequest.class;
+    public Class<ProductUpdateRequest> getReuestType() {
+        return ProductUpdateRequest.class;
     }
 }

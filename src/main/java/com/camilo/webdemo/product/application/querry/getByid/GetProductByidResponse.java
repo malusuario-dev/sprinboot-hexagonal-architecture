@@ -1,8 +1,7 @@
 package com.camilo.webdemo.product.application.querry.getByid;
 
-import com.camilo.webdemo.product.domain.Producto;
+import com.camilo.webdemo.product.domain.entity.Producto;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 
 @Data

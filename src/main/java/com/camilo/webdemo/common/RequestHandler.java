@@ -1,4 +1,4 @@
-package com.camilo.webdemo.common.mediator;
+package com.camilo.webdemo.common;
 
 public interface RequestHandler<T extends Request<R>, R> {
 
