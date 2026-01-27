@@ -5,6 +5,8 @@ import com.camilo.webdemo.product.domain.entity.Producto;
 import com.camilo.webdemo.product.infrastructure.database.entity.ProductEntity;
 import com.camilo.webdemo.product.infrastructure.database.mapper.ProductEntityMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
+@Slf4j
 public class ProductRepoImplement implements ProductRepository {
     private final List<ProductEntity> productos = new ArrayList<>();
  private  final ProductEntityMapper productEntityMapper;
@@ -25,8 +28,10 @@ public class ProductRepoImplement implements ProductRepository {
         productos.add(productEntity);
     }
 
+    @Cacheable(value = "products", key = "#id")
     @Override
     public Optional<Producto> findbyid(Long id) {
+        log.info("Finding prodcut whit id {}",id);
         return productos.stream().filter(p -> p.getId().equals(id)).
                 findFirst().map(productEntityMapper::mapToProdcut);    }
 

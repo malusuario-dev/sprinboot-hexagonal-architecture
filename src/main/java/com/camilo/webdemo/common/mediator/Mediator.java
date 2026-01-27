@@ -2,6 +2,7 @@ package com.camilo.webdemo.common.mediator;
 
 import com.camilo.webdemo.common.Request;
 import com.camilo.webdemo.common.RequestHandler;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -24,5 +25,10 @@ public class Mediator {
 
         }
         return handler.handle(request);
+    }
+
+    @Async
+    public <R, T extends Request<R>> void dispatchAsinc(T request) {
+           this.dispatch(request);
     }
 }

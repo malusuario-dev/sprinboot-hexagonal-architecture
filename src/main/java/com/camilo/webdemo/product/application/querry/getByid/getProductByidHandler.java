@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class getProductByidHandler implements RequestHandler<GetProductbyRequest, GetProductByidResponse> {
 
+
     private final ProductRepository productRepository;
     
     @Override
