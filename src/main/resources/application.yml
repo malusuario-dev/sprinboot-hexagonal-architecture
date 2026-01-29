@@ -2,4 +2,4 @@ spring:
   application:
     name: webdemoApplication
   profiles:
-    active: ${PROFILE}
+    active: dev

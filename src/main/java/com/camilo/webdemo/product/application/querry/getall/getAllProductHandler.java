@@ -1,8 +1,8 @@
 package com.camilo.webdemo.product.application.querry.getall;
 
-import com.camilo.webdemo.common.RequestHandler;
-import com.camilo.webdemo.product.domain.port.ProductRepository;
+import com.camilo.webdemo.common.application.mediator.RequestHandler;
 import com.camilo.webdemo.product.domain.entity.Producto;
+import com.camilo.webdemo.product.domain.port.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +17,7 @@ public class getAllProductHandler implements RequestHandler<GetProductAllRequest
 
     @Override
     public GetAllProductResponse handle(GetProductAllRequest requst) {
-        List<Producto> producto=  productRepository.findall();
+        List<Producto> producto = productRepository.findall();
         return new GetAllProductResponse(producto);
     }
 

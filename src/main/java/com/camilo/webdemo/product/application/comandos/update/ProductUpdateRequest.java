@@ -1,6 +1,6 @@
 package com.camilo.webdemo.product.application.comandos.update;
 
-import com.camilo.webdemo.common.Request;
+import com.camilo.webdemo.common.application.mediator.Request;
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 

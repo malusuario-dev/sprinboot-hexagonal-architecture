@@ -1,12 +1,11 @@
-package com.camilo.webdemo.common.config;
+package com.camilo.webdemo.common.infrastriture.config;
 
 
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
-@EnableScheduling
+//@EnableScheduling
 @EnableAsync
 @Configuration
 @EnableCaching

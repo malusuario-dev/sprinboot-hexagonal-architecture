@@ -1,9 +1,9 @@
 package com.camilo.webdemo.product.application.comandos.update;
 
-import com.camilo.webdemo.common.RequestHandler;
-import com.camilo.webdemo.common.util.FileUtils;
-import com.camilo.webdemo.product.domain.port.ProductRepository;
+import com.camilo.webdemo.common.application.mediator.RequestHandler;
+import com.camilo.webdemo.common.infrastriture.util.FileUtils;
 import com.camilo.webdemo.product.domain.entity.Producto;
+import com.camilo.webdemo.product.domain.port.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class ProductUpdateHandler implements RequestHandler<ProductUpdateRequest, Void> {
 
     private final ProductRepository productRepository;
- private  final FileUtils fileUtils;
+    private final FileUtils fileUtils;
 
     @Override
     public Void handle(ProductUpdateRequest requst) {
@@ -26,7 +26,6 @@ public class ProductUpdateHandler implements RequestHandler<ProductUpdateRequest
         productRepository.upsert(producto);
         return null;
     }
-
 
 
     @Override

@@ -1,10 +1,27 @@
 spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/spring
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
   servelet:
     multipart:
       max-request-size: 10MB
       max-file-size: 1MB
-cache:
-  type: simple
+  cache:
+    type: simple
+
+
+
 
 springdoc:
   swagger-ui:

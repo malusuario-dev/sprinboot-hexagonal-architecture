@@ -1,19 +1,18 @@
 package com.camilo.webdemo.product.infrastructure.api;
 
 import com.camilo.webdemo.product.infrastructure.api.dto.CreateProuctDto;
-import com.camilo.webdemo.product.infrastructure.api.dto.ProuctDto;
+import com.camilo.webdemo.product.infrastructure.api.dto.ProDuctDto;
 import com.camilo.webdemo.product.infrastructure.api.dto.UpdateProuctDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 public interface ProductApi {
-    public ResponseEntity<List<ProuctDto>> getProducto(@RequestParam(required = false)String pagesize);
+    public ResponseEntity<List<ProDuctDto>> getAllProducto(int pageNumber, int PageSie);
 
-    public ResponseEntity<ProuctDto> getProductobyid(@PathVariable Long id);
+    public ResponseEntity<ProDuctDto> getProductobyid(@PathVariable Long id);
 
     public ResponseEntity<Void> saveProduct(@RequestBody CreateProuctDto productoDto);
 

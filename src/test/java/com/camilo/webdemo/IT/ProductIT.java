@@ -2,7 +2,7 @@ package com.camilo.webdemo.IT;
 
 import com.camilo.webdemo.product.domain.entity.Producto;
 import com.camilo.webdemo.product.domain.port.ProductRepository;
-import com.camilo.webdemo.product.infrastructure.api.dto.ProuctDto;
+import com.camilo.webdemo.product.infrastructure.api.dto.ProDuctDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
@@ -45,8 +45,8 @@ public class ProductIT {
 
     @Test
     public void getForProductByID() {
-        ResponseEntity<ProuctDto> response =
-                testTemplate.getForEntity("http://localhost:8080/api/v1/products/1", ProuctDto.class);
+        ResponseEntity<ProDuctDto> response =
+                testTemplate.getForEntity("http://localhost:8080/api/v1/products/1", ProDuctDto.class);
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
         Assertions.assertNotNull(response.getBody());
         Assertions.assertEquals("Product 1", response.getBody().getName());

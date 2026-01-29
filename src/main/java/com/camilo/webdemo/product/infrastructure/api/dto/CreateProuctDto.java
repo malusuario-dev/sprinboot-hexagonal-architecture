@@ -12,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 @Data
 public class CreateProuctDto {
 
-    private  Long id;
     @NotBlank
     private String name;
     @DecimalMin(value = "0.01" ,inclusive = false)

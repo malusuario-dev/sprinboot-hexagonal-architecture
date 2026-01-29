@@ -1,4 +1,4 @@
-package com.camilo.webdemo.common.util;
+package com.camilo.webdemo.common.infrastriture.util;
 
 
 import org.springframework.stereotype.Service;
@@ -15,14 +15,14 @@ import java.util.UUID;
 
 @Service
 public class FileUtils {
-    public  String getUniqueFile(MultipartFile file) {
+    public String getUniqueFile(MultipartFile file) {
         String uniqueFile;
 
-        try (InputStream inputStream = file.getInputStream()){
+        try (InputStream inputStream = file.getInputStream()) {
             String filename = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
             uniqueFile = UUID.randomUUID().toString().concat("-").concat(filename);
             Path path = Path.of("uploads/products/");
-            if (!Files.exists(path)){
+            if (!Files.exists(path)) {
                 Files.createDirectories(path);
             }
             Files.copy(inputStream, path.resolve(uniqueFile), StandardCopyOption.REPLACE_EXISTING);

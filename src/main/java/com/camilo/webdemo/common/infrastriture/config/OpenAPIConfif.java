@@ -1,4 +1,4 @@
-package com.camilo.webdemo.common.config;
+package com.camilo.webdemo.common.infrastriture.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;

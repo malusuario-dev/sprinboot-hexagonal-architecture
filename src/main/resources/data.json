@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Laptop Pro 14",
+    "descripcion": "Laptop de alto rendimiento para desarrollo y tareas profesionales.",
+    "image": "laptop_pro_14.png",
+    "precio": 4200.50
+  },
+  {
+    "name": "Mouse Inalámbrico",
+    "descripcion": "Mouse ergonómico inalámbrico con batería recargable.",
+    "image": "mouse_wireless.png",
+    "precio": 89.99
+  },
+  {
+    "name": "Teclado Mecánico",
+    "descripcion": "Teclado mecánico con switches rojos y retroiluminación RGB.",
+    "image": "teclado_mecanico_rgb.png",
+    "precio": 350.75
+  },
+  {
+    "name": "Monitor 27 Pulgadas",
+    "descripcion": "Monitor Full HD de 27 pulgadas ideal para trabajo y gaming.",
+    "image": "monitor_27_fhd.png",
+    "precio": 1250.00
+  },
+  {
+    "name": "Audífonos Bluetooth",
+    "descripcion": "Audífonos inalámbricos con cancelación de ruido.",
+    "image": "audifonos_bluetooth.png",
+    "precio": 560.30
+  },
+  {
+    "name": "Disco SSD 1TB",
+    "descripcion": "Unidad de estado sólido de 1TB con alta velocidad de lectura.",
+    "image": "ssd_1tb.png",
+    "precio": 720.90
+  },
+  {
+    "name": "Cámara Web HD",
+    "descripcion": "Cámara web HD para videollamadas y streaming.",
+    "image": "camara_web_hd.png",
+    "precio": 210.45
+  },
+  {
+    "name": "Base Refrigerante Laptop",
+    "descripcion": "Base refrigerante con ventiladores silenciosos para laptop.",
+    "image": "base_refrigerante.png",
+    "precio": 145.00
+  },
+  {
+    "name": "Hub USB-C",
+    "descripcion": "Hub USB-C con múltiples puertos para expansión.",
+    "image": "hub_usb_c.png",
+    "precio": 199.99
+  },
+  {
+    "name": "Cargador tipo c",
+    "descripcion": "Cargador para telefonos de entrada tipo c .",
+    "image": "cargador_c.png",
+    "precio": 20.30
+  }
+]

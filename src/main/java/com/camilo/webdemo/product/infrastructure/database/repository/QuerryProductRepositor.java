@@ -1,0 +1,38 @@
+package com.camilo.webdemo.product.infrastructure.database.repository;
+
+import com.camilo.webdemo.product.infrastructure.database.entity.ProductEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface QuerryProductRepositor extends JpaRepository<ProductEntity, Long> {
+
+//    Optional<ProductEntity> finByNameContaining(String name);
+//
+//    List<ProductEntity> findAllPriceBetween(Double priceAfter, Double priceBefore);
+
+    @Query("""
+                SELECT p
+                FROM ProductEntity p
+                WHERE LOWER(p.name) LIKE LOWER(CONCAT('%', :name, '%'))
+                  AND p.precio BETWEEN :minPrice AND :maxPrice
+                  AND p.descripcion IS NOT NULL
+                  AND p.descripcion <> ''
+            """
+    )
+    List<ProductEntity> findProductsNative(
+            @Param("name") String name,
+            @Param("minPrice") Double minPrice,
+            @Param("maxPrice") Double maxPrice,
+            @Param("descripcion") String descripcion
+    );
+
+    Page<ProductEntity> findAll(Pageable pageable);
+
+}

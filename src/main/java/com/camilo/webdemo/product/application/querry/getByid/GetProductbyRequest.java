@@ -1,6 +1,6 @@
 package com.camilo.webdemo.product.application.querry.getByid;
 
-import com.camilo.webdemo.common.Request;
+import com.camilo.webdemo.common.application.mediator.Request;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

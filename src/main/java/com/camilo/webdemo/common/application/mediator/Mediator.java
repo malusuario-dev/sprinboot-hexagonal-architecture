@@ -1,7 +1,5 @@
-package com.camilo.webdemo.common.mediator;
+package com.camilo.webdemo.common.application.mediator;
 
-import com.camilo.webdemo.common.Request;
-import com.camilo.webdemo.common.RequestHandler;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
@@ -29,6 +27,6 @@ public class Mediator {
 
     @Async
     public <R, T extends Request<R>> void dispatchAsinc(T request) {
-           this.dispatch(request);
+        this.dispatch(request);
     }
 }

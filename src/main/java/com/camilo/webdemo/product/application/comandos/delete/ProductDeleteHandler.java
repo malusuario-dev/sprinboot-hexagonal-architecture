@@ -1,6 +1,6 @@
 package com.camilo.webdemo.product.application.comandos.delete;
 
-import com.camilo.webdemo.common.RequestHandler;
+import com.camilo.webdemo.common.application.mediator.RequestHandler;
 import com.camilo.webdemo.product.domain.port.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public class ProductDeleteHandler implements RequestHandler<DeleteProductRequest
 
     @Override
     public Void handle(DeleteProductRequest requst) {
-        System.out.println("Eliminando producto por id:" + requst.getId()+"....");
+        System.out.println("Eliminando producto por id:" + requst.getId() + "....");
         try {
             Thread.sleep(5000);
 
@@ -23,7 +23,7 @@ public class ProductDeleteHandler implements RequestHandler<DeleteProductRequest
         }
         productRepository.deleteByid(requst.getId());
 
-        System.out.println("Peoducto eliminado con  id:" + requst.getId()+"....");
+        System.out.println("Peoducto eliminado con  id:" + requst.getId() + "....");
 
         return null;
     }
