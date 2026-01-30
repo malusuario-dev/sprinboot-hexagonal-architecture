@@ -1,6 +1,8 @@
 package com.camilo.webdemo.product.infrastructure.api;
 
 import com.camilo.webdemo.common.application.mediator.Mediator;
+import com.camilo.webdemo.common.domain.PaginationQuerry;
+import com.camilo.webdemo.common.domain.PaginationResult;
 import com.camilo.webdemo.product.application.comandos.create.ProductCreateRequest;
 import com.camilo.webdemo.product.application.comandos.create.ProductCreateResponse;
 import com.camilo.webdemo.product.application.comandos.delete.DeleteProductRequest;
@@ -23,7 +25,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/products")
@@ -37,14 +38,23 @@ public class ProductController implements ProductApi {
 
     @Operation(summary = "get all products", description = "get all products")
     @GetMapping("")
-    public ResponseEntity<List<ProDuctDto>> getAllProducto(@RequestParam(defaultValue = "0") int pageNumber,
-                                                           @RequestParam(defaultValue = "5") int pageSize) {
+    public ResponseEntity<PaginationResult<ProDuctDto>> getAllProducto(@RequestParam(defaultValue = "0") int pageNumber,
+                                                                       @RequestParam(defaultValue = "5") int pageSize) {
+        PaginationQuerry paginationQuerry = new PaginationQuerry(pageNumber, pageSize);
         log.info("Get All the prodcuts ");
-        GetAllProductResponse response = mediator.dispatch(new GetProductAllRequest());
+        GetAllProductResponse response = mediator.dispatch(new GetProductAllRequest(paginationQuerry));
 
-        List<ProDuctDto> prudctsDtos = response.getProductos().stream().map(prouctMapper::mapToProductDto).toList();
-        log.info("Found  {} products", prudctsDtos.size());
-        return ResponseEntity.ok(prudctsDtos);
+        PaginationResult<Producto> productosPage = response.getProductsPage();
+
+        PaginationResult<ProDuctDto> productsPageresult = new PaginationResult<>(
+                productosPage.getContent().stream().map(prouctMapper::mapToProductDto).toList(),
+                productosPage.getPage(),
+                productosPage.getTotalPage(),
+                productosPage.getSize(),
+                productosPage.getTotalElement()
+        );
+        log.info("Found  {} products", productsPageresult.getTotalElement());
+        return ResponseEntity.ok(productsPageresult);
     }
 
 

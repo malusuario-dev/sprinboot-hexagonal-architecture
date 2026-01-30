@@ -1,5 +1,7 @@
 package com.camilo.webdemo.product.infrastructure.database;
 
+import com.camilo.webdemo.common.domain.PaginationQuerry;
+import com.camilo.webdemo.common.domain.PaginationResult;
 import com.camilo.webdemo.product.domain.entity.Producto;
 import com.camilo.webdemo.product.domain.port.ProductRepository;
 import com.camilo.webdemo.product.infrastructure.database.entity.ProductEntity;
@@ -8,9 +10,10 @@ import com.camilo.webdemo.product.infrastructure.database.repository.QuerryProdu
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -38,11 +41,17 @@ public class ProductRepoImplement implements ProductRepository {
 
 
     @Override
-    public List<Producto> findall() {
+    public PaginationResult<Producto> findall(PaginationQuerry paginationQuerry) {
 
-        // PageRequest pageRequest = PageRequest.of(pageNumber, pageSiza);
-        // Page<ProductEntity> page = repositor.findAll(pageRequest);
-        return repositor.findAll().stream().map(productEntityMapper::mapToProdcut).toList();
+        PageRequest pageRequest = PageRequest.of(paginationQuerry.getPage(), paginationQuerry.getSize());
+        Page<ProductEntity> page = repositor.findAll(pageRequest);
+        return new PaginationResult<>(
+                page.getContent().stream().map(productEntityMapper::mapToProdcut).toList(),
+                page.getNumber(),
+                page.getSize(),
+                page.getTotalPages(),
+                page.getTotalElements()
+        );
     }
 
     @Cacheable(value = "products", key = "#id")

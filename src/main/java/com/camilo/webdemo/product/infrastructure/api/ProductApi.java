@@ -1,5 +1,6 @@
 package com.camilo.webdemo.product.infrastructure.api;
 
+import com.camilo.webdemo.common.domain.PaginationResult;
 import com.camilo.webdemo.product.infrastructure.api.dto.CreateProuctDto;
 import com.camilo.webdemo.product.infrastructure.api.dto.ProDuctDto;
 import com.camilo.webdemo.product.infrastructure.api.dto.UpdateProuctDto;
@@ -7,10 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.List;
-
 public interface ProductApi {
-    public ResponseEntity<List<ProDuctDto>> getAllProducto(int pageNumber, int PageSie);
+    public ResponseEntity<PaginationResult<ProDuctDto>> getAllProducto(int pageNumber, int PageSie);
 
     public ResponseEntity<ProDuctDto> getProductobyid(@PathVariable Long id);
 
