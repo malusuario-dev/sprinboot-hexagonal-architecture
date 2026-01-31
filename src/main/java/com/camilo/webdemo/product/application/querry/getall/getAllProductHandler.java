@@ -5,8 +5,10 @@ import com.camilo.webdemo.common.domain.PaginationResult;
 import com.camilo.webdemo.product.domain.entity.Producto;
 import com.camilo.webdemo.product.domain.port.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 public class getAllProductHandler implements RequestHandler<GetProductAllRequest, GetAllProductResponse> {
@@ -16,7 +18,7 @@ public class getAllProductHandler implements RequestHandler<GetProductAllRequest
 
     @Override
     public GetAllProductResponse handle(GetProductAllRequest requst) {
-        PaginationResult<Producto> producto = productRepository.findall(requst.getPaginationQuerry());
+        PaginationResult<Producto> producto = productRepository.findall(requst.getPaginationQuerry(), requst.getProductoFilter());
         return new GetAllProductResponse(producto);
     }
 

@@ -3,7 +3,9 @@ package com.camilo.webdemo.product.infrastructure.database.repository;
 import com.camilo.webdemo.product.infrastructure.database.entity.ProductEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -11,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface QuerryProductRepositor extends JpaRepository<ProductEntity, Long> {
+public interface QuerryProductRepositor extends JpaRepository<ProductEntity, Long>, JpaSpecificationExecutor<ProductEntity> {
 
 //    Optional<ProductEntity> finByNameContaining(String name);
 //
@@ -33,6 +35,6 @@ public interface QuerryProductRepositor extends JpaRepository<ProductEntity, Lon
             @Param("descripcion") String descripcion
     );
 
-    Page<ProductEntity> findAll(Pageable pageable);
+    Page<ProductEntity> findAll(Specification<ProductEntity> specification, Pageable pageable);
 
 }

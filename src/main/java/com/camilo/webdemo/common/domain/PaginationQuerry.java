@@ -8,4 +8,6 @@ import lombok.Data;
 public class PaginationQuerry {
     private int page;
     private int size;
+    private String sortBy;
+    private String direction;
 }

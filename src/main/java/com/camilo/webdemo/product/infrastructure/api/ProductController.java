@@ -16,6 +16,7 @@ import com.camilo.webdemo.product.infrastructure.api.dto.CreateProuctDto;
 import com.camilo.webdemo.product.infrastructure.api.dto.ProDuctDto;
 import com.camilo.webdemo.product.infrastructure.api.dto.UpdateProuctDto;
 import com.camilo.webdemo.product.infrastructure.api.mapper.ProuctMapper;
+import com.camilo.webdemo.product.infrastructure.database.repository.ProductoFilter;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -39,10 +40,21 @@ public class ProductController implements ProductApi {
     @Operation(summary = "get all products", description = "get all products")
     @GetMapping("")
     public ResponseEntity<PaginationResult<ProDuctDto>> getAllProducto(@RequestParam(defaultValue = "0") int pageNumber,
-                                                                       @RequestParam(defaultValue = "5") int pageSize) {
-        PaginationQuerry paginationQuerry = new PaginationQuerry(pageNumber, pageSize);
+                                                                       @RequestParam(defaultValue = "5") int pageSize,
+                                                                       @RequestParam(defaultValue = "id") String sortBy,
+                                                                       @RequestParam(defaultValue = "asc") String direction,
+                                                                       @RequestParam(required = false) String name,
+                                                                       @RequestParam(required = false) String descripcion,
+                                                                       @RequestParam(required = false) Double priceMax,
+                                                                       @RequestParam(required = false) Double priceMin) {
+        PaginationQuerry paginationQuerry = new PaginationQuerry(pageNumber, pageSize, sortBy, direction);
+        ProductoFilter productoFilter = new ProductoFilter(name, descripcion, priceMin, priceMax);
+
         log.info("Get All the prodcuts ");
-        GetAllProductResponse response = mediator.dispatch(new GetProductAllRequest(paginationQuerry));
+        GetProductAllRequest getProductAllRequest = new GetProductAllRequest(paginationQuerry, productoFilter);
+        log.info("Filters: {}", productoFilter);
+
+        GetAllProductResponse response = mediator.dispatch(getProductAllRequest);
 
         PaginationResult<Producto> productosPage = response.getProductsPage();
 
