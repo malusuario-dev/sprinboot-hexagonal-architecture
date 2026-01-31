@@ -31,8 +31,7 @@ public class ProductRepoImplement implements ProductRepository {
     public Producto upsert(Producto producto) {
         ProductEntity productEntity = productEntityMapper.mapToProductEntity(producto);
         ProductEntity save = repositor.save(productEntity);
-
-        return productEntityMapper.mapToProdcut(save);
+        return productEntityMapper.mapToProduct(save);
 
     }
 
@@ -40,7 +39,7 @@ public class ProductRepoImplement implements ProductRepository {
     @Override
     public Optional<Producto> findbyid(Long id) {
         log.info("Finding prodcut whit id {}", id);
-        return repositor.findById(id).map(productEntityMapper::mapToProdcut);
+        return repositor.findById(id).map(productEntityMapper::mapToProduct);
     }
 
 
@@ -63,7 +62,7 @@ public class ProductRepoImplement implements ProductRepository {
         log.info("Predicates size: {}", page.getSize());
 
         return new PaginationResult<>(
-                page.getContent().stream().map(productEntityMapper::mapToProdcut).toList(),
+                page.getContent().stream().map(productEntityMapper::mapToProduct).toList(),
                 page.getNumber(),
                 page.getSize(),
                 page.getTotalPages(),

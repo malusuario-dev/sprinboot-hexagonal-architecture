@@ -6,9 +6,10 @@ import lombok.Data;
 @Data
 public class ProDuctDto {
 
-    private  Long id;
+    private Long id;
     private String name;
     private Double precio;
     private String descripcion;
     private String image;
+    private String provider;
 }

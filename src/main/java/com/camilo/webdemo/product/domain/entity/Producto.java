@@ -1,6 +1,6 @@
 package com.camilo.webdemo.product.domain.entity;
 
-import lombok.AllArgsConstructor;
+import com.camilo.webdemo.productDetail.domain.ProductDetail;
 import lombok.Builder;
 import lombok.Data;
 
@@ -12,4 +12,6 @@ public class Producto {
     private String descripcion;
     private String image;
     private Double precio;
+    private ProductDetail productDetail;
+
 }

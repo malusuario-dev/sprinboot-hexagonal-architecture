@@ -1,0 +1,42 @@
+[
+  {
+    "specifications": "Mouse gaming inalámbrico, sensor HERO 25K, 25600 DPI, RGB LIGHTSYNC",
+    "warranty": "2 años",
+    "provider": "Logitech Official Store"
+  },
+  {
+    "specifications": "Teclado mecánico gaming, switches ópticos, iluminación RGB Chroma",
+    "warranty": "1 año",
+    "provider": "Razer Latam"
+  },
+  {
+    "specifications": "Memoria RAM DDR5 32GB (2x16GB), 6000MHz, disipador aluminio",
+    "warranty": "Garantía de por vida limitada",
+    "provider": "Corsair Authorized Partner"
+  },
+  {
+    "specifications": "Monitor gaming 27 pulgadas, IPS, 165Hz, 1ms, G-Sync compatible",
+    "warranty": "3 años",
+    "provider": "ASUS Global"
+  },
+  {
+    "specifications": "Tarjeta gráfica RTX 4070, 12GB GDDR6X, sistema de enfriamiento triple fan",
+    "warranty": "3 años",
+    "provider": "MSI Technology"
+  },
+  {
+    "specifications": "SSD NVMe M.2 1TB, PCIe 4.0, velocidad lectura hasta 7000MB/s",
+    "warranty": "5 años",
+    "provider": "Samsung Electronics"
+  },
+  {
+    "specifications": "Procesador Core i7 13700K, 16 núcleos, hasta 5.4GHz",
+    "warranty": "3 años",
+    "provider": "Intel Authorized Distributor"
+  },
+  {
+    "specifications": "Procesador Ryzen 7 7800X3D, arquitectura Zen 4, optimizado para gaming",
+    "warranty": "3 años",
+    "provider": "AMD Official Channel"
+  }
+]

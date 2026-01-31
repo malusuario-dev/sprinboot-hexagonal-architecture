@@ -7,6 +7,7 @@ import com.camilo.webdemo.product.infrastructure.api.dto.CreateProuctDto;
 import com.camilo.webdemo.product.infrastructure.api.dto.ProDuctDto;
 import com.camilo.webdemo.product.infrastructure.api.dto.UpdateProuctDto;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;
 
@@ -16,6 +17,7 @@ public interface ProuctMapper {
 
     ProductUpdateRequest mapToUpdateProductRequest(UpdateProuctDto prouctDto);
 
+    @Mapping(target = "provider", source = "producto.productDetail.provider")
     ProDuctDto mapToProductDto(Producto producto);
 
 }
