@@ -3,7 +3,7 @@ package com.camilo.webdemo.product.domain.port;
 import com.camilo.webdemo.common.domain.PaginationQuerry;
 import com.camilo.webdemo.common.domain.PaginationResult;
 import com.camilo.webdemo.product.domain.entity.Producto;
-import com.camilo.webdemo.product.infrastructure.database.repository.ProductoFilter;
+import com.camilo.webdemo.product.infrastructure.database.entity.ProductoFilter;
 
 import java.util.Optional;
 

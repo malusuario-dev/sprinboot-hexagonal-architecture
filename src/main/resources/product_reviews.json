@@ -1,0 +1,52 @@
+[
+  {
+    "rating": 5,
+    "comment": "Excelente rendimiento, superó mis expectativas para gaming.",
+    "product": { "id": 27 }
+  },
+  {
+    "rating": 4,
+    "comment": "Muy buen producto, aunque el precio podría ser mejor.",
+    "product": { "id": 28 }
+  },
+  {
+    "rating": 5,
+    "comment": "Calidad premium, materiales sólidos y gran desempeño.",
+    "product": { "id": 29 }
+  },
+  {
+    "rating": 3,
+    "comment": "Cumple su función, pero esperaba un poco más por el costo.",
+    "product": { "id": 30 }
+  },
+  {
+    "rating": 4,
+    "comment": "Buen rendimiento general, recomendado para uso diario.",
+    "product": { "id": 31 }
+  },
+  {
+    "rating": 5,
+    "comment": "Ideal para gaming y trabajo pesado, muy satisfecho.",
+    "product": { "id": 32 }
+  },
+  {
+    "rating": 2,
+    "comment": "No cumplió mis expectativas, tiene problemas de compatibilidad.",
+    "product": { "id": 33 }
+  },
+  {
+    "rating": 4,
+    "comment": "Funciona bien y la relación calidad-precio es aceptable.",
+    "product": { "id": 34 }
+  },
+  {
+    "rating": 5,
+    "comment": "Excelente compra, volvería a comprarlo sin dudar.",
+    "product": { "id": 35 }
+  },
+  {
+    "rating": 4,
+    "comment": "Buen producto en general, envío rápido y bien empaquetado.",
+    "product": { "id": 29 }
+  }
+]

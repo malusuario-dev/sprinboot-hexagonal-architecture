@@ -1,4 +1,4 @@
-package com.camilo.webdemo.product.infrastructure.database.repository;
+package com.camilo.webdemo.product.infrastructure.database.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,5 +1,6 @@
-package com.camilo.webdemo.productDetail.infrastructure;
+package com.camilo.webdemo.productDetail.infrastructure.repo;
 
+import com.camilo.webdemo.productDetail.infrastructure.ProductDetailEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

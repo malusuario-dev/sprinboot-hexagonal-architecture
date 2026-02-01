@@ -2,6 +2,8 @@ package com.camilo.webdemo.product.infrastructure.api.dto;
 
 import lombok.Data;
 
+import java.util.List;
+
 
 @Data
 public class ProDuctDto {
@@ -12,4 +14,6 @@ public class ProDuctDto {
     private String descripcion;
     private String image;
     private String provider;
+    private List<ReviewDto> reviews;
+
 }

@@ -16,7 +16,7 @@ import com.camilo.webdemo.product.infrastructure.api.dto.CreateProuctDto;
 import com.camilo.webdemo.product.infrastructure.api.dto.ProDuctDto;
 import com.camilo.webdemo.product.infrastructure.api.dto.UpdateProuctDto;
 import com.camilo.webdemo.product.infrastructure.api.mapper.ProuctMapper;
-import com.camilo.webdemo.product.infrastructure.database.repository.ProductoFilter;
+import com.camilo.webdemo.product.infrastructure.database.entity.ProductoFilter;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

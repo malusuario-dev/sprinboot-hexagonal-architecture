@@ -1,5 +1,7 @@
-package com.camilo.webdemo.productDetail.infrastructure;
+package com.camilo.webdemo.review.infrastructure.seeder;
 
+import com.camilo.webdemo.review.infrastructure.ReviewEntity;
+import com.camilo.webdemo.review.infrastructure.repo.QuerryProductReviewsRepo;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
@@ -14,8 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 @Component
 @Slf4j
-public class ProductDetailSeeder implements CommandLineRunner {
-    private final QuerryProductDetailRepo productRepository;
+public class ProductReviewSeeder implements CommandLineRunner {
+    private final QuerryProductReviewsRepo productRepository;
     private final ResourceLoader resourceLoader;
     private final ObjectMapper objectMapper;
 
@@ -25,8 +27,8 @@ public class ProductDetailSeeder implements CommandLineRunner {
 
         if (count == 0) {
 
-            Resource resource = resourceLoader.getResource("classpath:products_details.json");
-            List<ProductDetailEntity> productDetailEntityList = objectMapper.readValue(resource.getInputStream(), new TypeReference<>() {
+            Resource resource = resourceLoader.getResource("classpath:product_reviews.json");
+            List<ReviewEntity> productDetailEntityList = objectMapper.readValue(resource.getInputStream(), new TypeReference<>() {
             });
 
             productRepository.saveAll(productDetailEntityList);

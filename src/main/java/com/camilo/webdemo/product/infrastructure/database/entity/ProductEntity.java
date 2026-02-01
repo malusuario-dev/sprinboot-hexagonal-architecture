@@ -2,8 +2,12 @@ package com.camilo.webdemo.product.infrastructure.database.entity;
 
 
 import com.camilo.webdemo.productDetail.infrastructure.ProductDetailEntity;
+import com.camilo.webdemo.review.infrastructure.ReviewEntity;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -22,5 +26,8 @@ public class ProductEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_detail_id")
     private ProductDetailEntity productDetailEntity;
+
+    @OneToMany(mappedBy = "product")
+    private List<ReviewEntity> reviews = new ArrayList<>();
 
 }
