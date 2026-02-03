@@ -1,5 +1,7 @@
 package com.camilo.webdemo.product.infrastructure.database.mapper;
 
+import com.camilo.webdemo.category.domain.Category;
+import com.camilo.webdemo.category.infraestructure.CategoryEntity;
 import com.camilo.webdemo.product.domain.entity.Producto;
 import com.camilo.webdemo.product.infrastructure.database.entity.ProductEntity;
 import com.camilo.webdemo.review.doamin.Review;
@@ -24,4 +26,10 @@ public interface ProductEntityMapper {
 
     @Mapping(target = "producto", ignore = true)
     Review toDomain(ReviewEntity entity);
+
+    @Mapping(target = "prodcuts", ignore = true)
+    Category mapToCategory(CategoryEntity categoryEntity);
+
+    @Mapping(target = "prodcuts", ignore = true)
+    CategoryEntity mapToCategoryEntity(Category category);
 }

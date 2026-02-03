@@ -1,5 +1,6 @@
 package com.camilo.webdemo.product.domain.entity;
 
+import com.camilo.webdemo.category.domain.Category;
 import com.camilo.webdemo.productDetail.domain.ProductDetail;
 import com.camilo.webdemo.review.doamin.Review;
 import lombok.Builder;
@@ -17,5 +18,6 @@ public class Producto {
     private Double precio;
     private ProductDetail productDetail;
     private List<Review> reviews;
+    private List<Category> categories;
 
 }

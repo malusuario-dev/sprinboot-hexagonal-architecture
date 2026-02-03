@@ -40,6 +40,7 @@ public class ProductRepoImplement implements ProductRepository {
     public Optional<Producto> findbyid(Long id) {
         log.info("Finding prodcut whit id {}", id);
         return repositor.findById(id).map(productEntityMapper::mapToProduct);
+
     }
 
 
