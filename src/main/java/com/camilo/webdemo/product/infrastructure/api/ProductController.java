@@ -105,7 +105,7 @@ public class ProductController implements ProductApi {
 
     @Operation(summary = "update a product", description = "update a product")
     @PutMapping("")
-    public ResponseEntity<Void> updateProduct(@Valid @ModelAttribute UpdateProuctDto prouctDto) {
+    public ResponseEntity<Void> updateProduct(@Valid @RequestBody UpdateProuctDto prouctDto) {
         log.info(" update  the  prodcuts  with id ");
 
         ProductUpdateRequest request = prouctMapper.mapToUpdateProductRequest(prouctDto);

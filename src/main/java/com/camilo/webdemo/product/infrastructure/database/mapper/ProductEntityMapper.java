@@ -6,10 +6,9 @@ import com.camilo.webdemo.product.domain.entity.Producto;
 import com.camilo.webdemo.product.infrastructure.database.entity.ProductEntity;
 import com.camilo.webdemo.review.doamin.Review;
 import com.camilo.webdemo.review.infrastructure.ReviewEntity;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.ReportingPolicy;
+import org.mapstruct.*;
+
+import java.util.Objects;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING, unmappedTargetPolicy = ReportingPolicy.ERROR)
 public interface ProductEntityMapper {
@@ -32,4 +31,13 @@ public interface ProductEntityMapper {
 
     @Mapping(target = "prodcuts", ignore = true)
     CategoryEntity mapToCategoryEntity(Category category);
+
+    @AfterMapping
+    default void linkReview(@MappingTarget ProductEntity product) {
+        if (product.getReviews() != null) return;
+
+        product.getReviews().stream()
+                .filter(Objects::nonNull)
+                .forEach(r -> r.setProduct(product));
+    }
 }

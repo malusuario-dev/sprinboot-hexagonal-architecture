@@ -1,8 +1,8 @@
 package com.camilo.webdemo.product.application.comandos.update;
 
 import com.camilo.webdemo.common.application.mediator.Request;
+import com.camilo.webdemo.review.doamin.Review;
 import lombok.Data;
-import org.springframework.web.multipart.MultipartFile;
 
 @Data
 
@@ -11,6 +11,8 @@ public class ProductUpdateRequest implements Request<Void> {
     private String name;
     private Double precio;
     private String descripcion;
-    private MultipartFile file;
+    private String provider;
+    private Review review;
+    private Long category;
 
 }
