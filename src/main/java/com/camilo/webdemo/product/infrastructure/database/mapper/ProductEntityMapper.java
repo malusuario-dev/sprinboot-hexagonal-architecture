@@ -33,11 +33,11 @@ public interface ProductEntityMapper {
     CategoryEntity mapToCategoryEntity(Category category);
 
     @AfterMapping
-    default void linkReview(@MappingTarget ProductEntity product) {
-        if (product.getReviews() != null) return;
+    default void linkReviews(@MappingTarget ProductEntity productEntity) {
+        if (productEntity.getReviews() == null) return;
 
-        product.getReviews().stream()
+        productEntity.getReviews().stream()
                 .filter(Objects::nonNull)
-                .forEach(r -> r.setProduct(product));
+                .forEach(r -> r.setProduct(productEntity));
     }
 }

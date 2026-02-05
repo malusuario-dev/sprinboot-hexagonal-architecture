@@ -30,7 +30,9 @@ public class ProductRepoImplement implements ProductRepository {
     @Override
     public Producto upsert(Producto producto) {
         ProductEntity productEntity = productEntityMapper.mapToProductEntity(producto);
+
         ProductEntity save = repositor.save(productEntity);
+        log.info(save.getReviews().toString());
         return productEntityMapper.mapToProduct(save);
 
     }

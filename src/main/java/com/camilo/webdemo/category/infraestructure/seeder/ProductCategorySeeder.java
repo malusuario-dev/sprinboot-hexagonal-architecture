@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,8 @@ import java.util.List;
 @AllArgsConstructor
 @Component
 @Slf4j
+@Profile("!test")
+
 public class ProductCategorySeeder implements CommandLineRunner {
     private final QuerryProductCategorysRepo productRepository;
     private final ResourceLoader resourceLoader;

@@ -5,17 +5,23 @@ import com.camilo.webdemo.product.domain.port.ProductRepository;
 import com.camilo.webdemo.product.infrastructure.api.dto.ProDuctDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.*;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @Slf4j
@@ -43,6 +49,8 @@ public class ProductIT {
         productRepository.deleteByid(1L);
     }
 
+    @Sql(scripts = "/it/productos/data.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(scripts = "/it/products/clean.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     @Test
     public void getForProductByID() {
         ResponseEntity<ProDuctDto> response =
@@ -54,6 +62,8 @@ public class ProductIT {
         Assertions.assertEquals(100.10, response.getBody().getPrecio());
 
     }
+
+    @Sql(scripts = "/it/products/clean.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 
     @Test
     public void saveProduct() throws Exception {

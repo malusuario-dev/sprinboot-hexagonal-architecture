@@ -77,7 +77,7 @@ public class ProductController implements ProductApi {
         GetProductByidResponse response = mediator.dispatch(new GetProductbyRequest(id));
         ProDuctDto proDuctDto = prouctMapper.mapToProductDto(response.getProducto());
         log.info("Get product  with id {} ", proDuctDto.getId());
-        log.info("DTO categories null? {}", proDuctDto.getCategories() == null);
+        log.info("DTO categories null? {}", proDuctDto.getReviews() == null);
 
         return ResponseEntity.ok(proDuctDto);
     }

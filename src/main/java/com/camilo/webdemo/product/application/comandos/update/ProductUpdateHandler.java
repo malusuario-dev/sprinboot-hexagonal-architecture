@@ -9,12 +9,14 @@ import com.camilo.webdemo.product.domain.entity.Producto;
 import com.camilo.webdemo.product.domain.exception.ProductNotFoundExeption;
 import com.camilo.webdemo.product.domain.port.ProductRepository;
 import com.camilo.webdemo.productDetail.domain.ProductDetail;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 
 @Service
 @RequiredArgsConstructor
+@Transactional(rollbackOn = Exception.class)
 public class ProductUpdateHandler implements RequestHandler<ProductUpdateRequest, Void> {
 
     private final ProductRepository productRepository;
@@ -35,6 +37,8 @@ public class ProductUpdateHandler implements RequestHandler<ProductUpdateRequest
                 map(categoryEntityMapper::mapToCategory)
                 .orElseThrow(() -> new RuntimeException("category null"));
         producto.getCategories().add(category);
+
+
         productRepository.upsert(producto);
         return null;
     }
