@@ -1,8 +1,10 @@
 package com.camilo.webdemo.common.infrastriture.exepciones;
 
 import com.camilo.webdemo.product.domain.exception.ProductNotFoundExeption;
+import io.jsonwebtoken.JwtException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -43,5 +45,15 @@ public class ApiExceptionHandler {
         );
 
 
+    }
+
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ExceptionHandler({
+            JwtException.class, AuthenticationException.class
+    })
+    @ResponseBody
+    public ErrorMessage forBiden(HttpServletRequest request, Exception e) {
+
+        return new ErrorMessage(e.getMessage(), e.getClass().getSimpleName(), request.getRequestURI());
     }
 }

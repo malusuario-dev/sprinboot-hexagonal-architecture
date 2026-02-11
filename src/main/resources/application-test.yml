@@ -41,3 +41,5 @@ management:
     health:
       show-details: always
 
+jwt:
+  token: eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJBRE1JTiJdLCJzdWIiOiJub3Jhb0BnbWFpbC5jb20iLCJpYXQiOjE3NzA4MjcxNjYsImV4cCI6MTc3MDgyNzE2NjQ2NH0.NOdeq7XQNS9V8HRQa7rBHEzMKSfBj5Cjd6XdlxljpD8

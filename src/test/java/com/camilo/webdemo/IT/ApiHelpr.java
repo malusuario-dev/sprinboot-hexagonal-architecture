@@ -1,18 +1,24 @@
 package com.camilo.webdemo.IT;
 
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-@SpringBootTest
+import java.time.Duration;
+
+@Configuration
 public class ApiHelpr {
 
+    @Value("${jwt.token}")
+    private String token;
+
     @Bean
-    public TestRestTemplate getRestTemplate(){
-    return  new TestRestTemplate(new
-            RestTemplateBuilder().
-            basicAuthentication("spring","spring")
-            .connectTimeout(java.time.Duration.ofSeconds(10)));
+    public TestRestTemplate getRestTemplate() {
+        return new TestRestTemplate(new
+                RestTemplateBuilder().defaultHeader("Authorization", "Bearer".concat(token))
+                .connectTimeout(Duration.ofSeconds(10))
+                .rootUri("http://localhost:8080"));
     }
 }

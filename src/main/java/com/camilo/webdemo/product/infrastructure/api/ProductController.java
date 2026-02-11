@@ -18,6 +18,7 @@ import com.camilo.webdemo.product.infrastructure.api.dto.UpdateProuctDto;
 import com.camilo.webdemo.product.infrastructure.api.mapper.ProuctMapper;
 import com.camilo.webdemo.product.infrastructure.database.entity.ProductoFilter;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +32,7 @@ import java.net.URI;
 @RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
 @Slf4j
+@SecurityRequirement(name = "Bearer Authentication")
 @Tag(name = "Product", description = "Product Api operations")
 public class ProductController implements ProductApi {
     private final Mediator mediator;

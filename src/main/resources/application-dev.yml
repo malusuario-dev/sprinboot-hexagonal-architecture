@@ -1,6 +1,13 @@
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: ${Client_ID}
+            client-secret: ${Client_secrects}
   datasource:
-    url: jdbc:postgresql://postgres:5432/spring
+    url: jdbc:postgresql://localhost:5433/spring
     username: postgres
     password: 1234
     driver-class-name: org.postgresql.Driver

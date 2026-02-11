@@ -1,5 +1,5 @@
 spring:
   application:
-    name: webdemoApplicationTest
+    name: webdemoApplication
   profiles:
-    active: prod
+    active: dev
